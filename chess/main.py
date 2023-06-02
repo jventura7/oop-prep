@@ -42,49 +42,52 @@ class Piece(ABC):
     return self.__color
 
   @abstractmethod
-  def move(self):
+  def move(self, dx, dy):
     pass
 
 class Pawn(Piece):
   def __init__(self, x, y, color):
     super().__init__(x, y, color)
   
-  def move():
+  def move(self, dx, dy):
     pass
 
 class King(Piece):
   def __init__(self, x, y, color):
     super().__init__(x, y, color)
   
-  def move():
+  def move(self, dx, dy):
     pass
 
 class Queen(Piece):
   def __init__(self, x, y, color):
     super().__init__(x, y, color)
   
-  def move():
+  def move(self, dx, dy):
     pass
 
 class Rook(Piece):
   def __init__(self, x, y, color):
     super().__init__(x, y, color)
   
-  def move():
-    pass
+  def move(self, dx, dy):
+    x, y = self.get_position()
+    if dx != x and dy != y:
+      raise ValueError('Invalid move for a rook, please move in a straight line')
+    self.set_position(dx, dy)
 
 class Bishop(Piece):
   def __init__(self, x, y, color):
     super().__init__(x, y, color)
 
-  def move():
+  def move(self, dx, dy):
     pass
 
 class Knight(Piece):
   def __init__(self, x, y, color):
     super().__init__(x, y, color)
   
-  def move():
+  def move(self, dx, dy):
     pass
 "PIECE CLASSES"
 
