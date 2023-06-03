@@ -131,17 +131,24 @@ class Game:
   def _play_round(self):
     for player in self._players:
       print(f"It's {player.get_name()}'s turn!\n")
-      dice_roll = self._die.roll().value
+
+      dice_roll = self._die.roll()
       player_position = player.get_position()
       new_player_position = player_position + dice_roll
       print(f"{player.get_name()} rolled a {dice_roll}")
+
+      # check if out of bound
+      if (new_player_position > self._board.get_size()): continue
+
       while self._board.get_value_at_position(new_player_position) != 0:
         new_player_position = self._board.get_value_at_position(new_player_position)
+
       print(f"{player.get_name()} moved from {player_position} to {new_player_position}")
       player.update_position(new_player_position)
       if new_player_position == self._board.get_size(): 
         print(f"{player.get_name()} won!")
         return True
+      
     return False
 
   def play_game(self):
