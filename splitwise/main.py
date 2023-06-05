@@ -86,7 +86,6 @@ class Show:
           user_owing = users_db.get_user_from_id(user_owing_id)
           print(f'{users_database[user_id][user_owing_id]} from {user_owing.get_name()}\n')
 
-
 "UserDB Class"
 class UserDB:
   def __init__(self):
@@ -131,7 +130,6 @@ class Splitwise:
 
   def _expense(self, type):
     pass
-
 
 
 "Testing"
